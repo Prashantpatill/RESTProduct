@@ -10,8 +10,7 @@ jobs:
     steps:
       - name: Start Mysql Service
         run: |
-          sudo /etc/init.d/mysql start
-          sudo mysql -e 'ALTER USER "${{ env.DbUser }}"@"localhost" IDENTIFIED BY "${{ env.DbPassword }}";' -uroot -proot
+          sudo /etc/init.d/mysql start 
           sudo mysql -e "CREATE DATABASE ${{ env.DbName }};" -u{{env.DbUser}} -p{{env.DbPassword}}
 
       - name: Checkout from the Repository
