@@ -11,8 +11,8 @@ jobs:
       - name: Start Mysql Service
         run: |
           sudo /etc/init.d/mysql start
-          sudo mysql -e "ALTER USER '${{ env.DB_User }}'@'localhost' IDENTIFIED BY '${{ env.DB_Password }}';" -uroot -p'root'
-          sudo mysql -e "CREATE DATABASE ${{ env.DB_Name }};" -uroot -p'root'
+          sudo mysql -e 'ALTER USER "${{ env.DB_User }}"@"localhost" IDENTIFIED BY "${{ env.DB_Password }}";' -uroot -proot
+          sudo mysql -e "CREATE DATABASE ${{ env.DB_Name }};" -uroot -proot
 
       - name: Checkout from the Repository
         uses: actions/checkout@v2
