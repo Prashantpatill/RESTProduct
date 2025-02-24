@@ -17,7 +17,7 @@ type App struct {
 	DB     *sql.DB
 }
 
-func (app *App) Initalise() error {
+func (app *App) Initalise(DbUser string, DbPassword string, DbName string) error {
 	var err error
 
 	dbConnector := fmt.Sprintf("%v:%v@tcp(127.0.0.1:3306)/%v", DbUser, DbPassword, DbName)
@@ -111,7 +111,7 @@ func (app *App) insertProducts(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		sendError(w, http.StatusBadRequest, err.Error())
 	}
-	sendResponse(w, http.StatusOK, p)
+	sendResponse(w, http.StatusCreated, p)
 
 }
 
