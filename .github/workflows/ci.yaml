@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Start Mysql Service
         run: |
-          |
           sudo /etc/init.d/mysql start
           # Create user and grant privileges
           sudo mysql -e "CREATE USER IF NOT EXISTS '${{ env.DbUser }}'@'localhost' IDENTIFIED BY '${{ env.DbPassword }}';" -uroot -p'root'
