@@ -2,8 +2,8 @@ name: Githubworkflow
 on: push
 env:
   DbName: TestDB
-  DbUser: dbhelper
-  DbPassword: dbw0rk3r
+  DbUser: tester
+  DbPassword: tester
 jobs:
   runs_code_checks:
     runs-on: ubuntu-latest
